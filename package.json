@@ -1,6 +1,6 @@
 {
-  "name": "tms-bootstrap-card",
-  "version": "1.0.0",
+  "name": "custom-bootstrap-card",
+  "version": "1.0.1",
   "description": "a custom bootstrap card component",
   "main": "bootstrap-card.js",
   "scripts": {
