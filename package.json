@@ -1,6 +1,6 @@
 {
   "name": "custom-bootstrap-card",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a custom bootstrap card component",
   "main": "bootstrap-card.js",
   "scripts": {

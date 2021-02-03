@@ -25,7 +25,7 @@ In HTML body:
 
 <script type="module">
   import {addCard} from
-    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card@1.0.0/bootstrap-card.js';
+    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card@1.0.2/bootstrap-card.js';
 
   addCard({
     rowId: "exampleCards",
