@@ -25,7 +25,7 @@ In HTML body:
 
 <script type="module">
   import {addCard} from
-    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card@1.0.2/bootstrap-card.js';
+    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card@1.1.0/bootstrap-card.js';
 
   addCard({
     rowId: "exampleCards",
@@ -33,7 +33,8 @@ In HTML body:
     imageAlt: "sample picsum image",
     title: "Random Image Number",
     text: "A random image from picsum.photos",
-    href: "https://example.com"
+    href: "https://example.com",
+    imgHoverURL: "https://via.placeholder.com/400x300?text=hover+image"
   });
 </script>
 ```

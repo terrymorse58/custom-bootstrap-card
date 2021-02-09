@@ -9,12 +9,25 @@ const cssRules = `
         margin-bottom: 30px;
         transform: scale(1.0);
       }
-
+      
       .tms-card:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
         transform: scale(1.04);
         transition: transform .7s ease, box-shadow .7s ease;
+      }
+      
+      .tms-card .card-img-hover {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:auto;
+        display: none;
+      }
+
+      .tms-card .card-img-hover.show {
+        display: block;
       }
     `;
 const STYLESHEET_ID = 'tms-card-styles';
@@ -26,6 +39,10 @@ const tmsCardTemplateContent = `
           class="card-img-top"
           src=""
           alt="placeholder image">
+        <img
+          class="card-img-hover"
+          src=""
+          alt="image shown on hover">
         <div class="card-body">
           <h5 class="card-title"></h5>
           <p class="card-text"></p>
@@ -59,22 +76,25 @@ function addCardTemplateToBody () {
 }
 
 /**
- * add card to row
- * @param {string} rowId - id attribute of destination row
+ * add card to container
+ * @param {string} containerId - id of destination container
  * @param {string} imageUrl
  * @param {string} imageAlt
  * @param {string} title
  * @param {string} text
  * @param {string} href - URL to navigate to upon a click
+ * @param {string} [imgHoverURL] - image to show on hover (optional)
  */
 function addCard ({
-    rowId,
+    containerId,
     imageUrl,
     imageAlt,
     title,
     text,
-    href}) {
-  const cardsRow = document.getElementById(rowId);
+    href,
+    imgHoverURL = ""
+}) {
+  const cardsContainer = document.getElementById(containerId);
   const template = document.getElementById(TEMPLATE_ID);
   const clone = template.content.cloneNode(true);
   const card = clone.querySelector('.card.tms-card');
@@ -88,12 +108,32 @@ function addCard ({
   image.src = imageUrl;
   image.alt = imageAlt;
   image.title = title;
+
+  // hover image (optional)
+  if (imgHoverURL) {
+    const imgHover = clone.querySelector(
+      '.card.tms-card .card-img-hover'
+    );
+    imgHover.src = imgHoverURL;
+    card.addEventListener('pointerenter', () => {
+      imgHover.classList.add('show');
+    });
+    card.addEventListener('pointerleave', () => {
+      imgHover.classList.remove('show');
+
+      // add random query string to gifs to force reload each time
+      if (imgHoverURL.endsWith('.gif')) {
+        imgHover.src = imgHoverURL + '?' +Math.random();
+      }
+    });
+  }
+
   const hTitle = clone.querySelector('.card-body .card-title');
   hTitle.innerText = title;
   const pText = clone.querySelector('.card-text');
   pText.innerHTML = text;
 
-  cardsRow.appendChild(clone);
+  cardsContainer.appendChild(clone);
 }
 
 // add necessary items to DOM
