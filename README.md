@@ -3,7 +3,7 @@
 A custom card component based on Bootstrap 4
 ---
 
-![custom card screenshot](docs/custom-card-screenshot.png)
+![custom card screenshot](docs/bootstrap-custom-card-dynamic-600x450.gif)
 
 ## Usage
 

@@ -1,0 +1,15 @@
+{
+  "port": 3443,
+  "files": [
+    "./src/*.{js}",
+    "./demo/*.html",
+    "./demo/imgs/*.{gif,png,jpg}"
+  ],
+  "watch": true,
+  "server": {
+    "baseDir": "./",
+    "index": "index.html"
+  },
+  "https": true,
+  "logLevel": "info"
+}
