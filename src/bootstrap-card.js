@@ -44,7 +44,7 @@ const cssRules = `
       .tms-card .card-link.show {
         opacity: 0.7;
         transition: opacity 0.3s linear;
-        transition-delay: 1.5s;
+        transition-delay: 1s;
       }
     `;
 const STYLESHEET_ID = 'tms-card-styles';
@@ -122,13 +122,11 @@ function addCard ({
 
   // handle click away from card
   function handleClickAway (evt) {
-    console.log('handleClickAway evt:', evt);
+    // console.log('handleClickAway evt:', evt);
     if (evt.target === card) {
-      console.log('  handleClickAway card was clicked, not exiting');
       return;
     }
     if( card.contains(evt.target)) {
-      console.log('  handleClickAway card contains click, not exiting');
       return;
     }
     handleExit(evt);
@@ -137,7 +135,7 @@ function addCard ({
 
   // respond to user enter ('pointerenter' or 'click')
   function handleEnter (evt) {
-    console.log('handleEnter() evt:', evt);
+    // console.log('handleEnter() evt:', evt);
 
     // show and enable button
     if (href) {
@@ -164,7 +162,7 @@ function addCard ({
 
   // handle user exit from card
   function handleExit (evt) {
-    console.log('handleExit() evt:', evt);
+    // console.log('handleExit() evt:', evt);
     // hide and disable button, hide hover image
     button.classList.remove('show');
     button.disabled = true;
@@ -191,9 +189,11 @@ function addCard ({
   imgHover.src = imgHoverURL;
 
   // set button if href link was specified
-  function handleButton () {
-    window.location.href = href;
-    return false;
+  function handleButton (evt) {
+    // console.log('handleButton() evt:', evt);
+    handleExit(evt);
+    setTimeout(() => {window.location.href = href;}, 200);
+    evt.stopPropagation();
   }
 
   if (href) {
@@ -222,7 +222,6 @@ function deviceCanHover () {
 }
 
 userCanHover = deviceCanHover();
-console.log('userCanHover:', userCanHover);
 
 // add required items to DOM
 addCardStyleToHead();
