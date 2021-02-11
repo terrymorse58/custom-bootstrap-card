@@ -25,7 +25,7 @@ In HTML body:
 
 <script type="module">
   import {addCard} from
-    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card@1.1.0/bootstrap-card.js';
+    'https://cdn.jsdelivr.net/npm/custom-bootstrap-card/src/bootstrap-card.js';
 
   addCard({
     rowId: "exampleCards",
@@ -38,3 +38,12 @@ In HTML body:
   });
 </script>
 ```
+## Custom Styles
+
+Override default styling by placing:
+```html
+<style id="tms-card-style">
+    ...
+</style>
+```
+in the document's `<head>` section.

@@ -2,6 +2,9 @@
 
 let userCanHover;
 
+const STYLESHEET_ID = 'tms-card-styles';
+const TEMPLATE_ID = 'tms-card-template';
+
 const cssRules = `
        .tms-card {
         vertical-align: top !important;
@@ -47,7 +50,6 @@ const cssRules = `
         transition-delay: 1s;
       }
     `;
-const STYLESHEET_ID = 'tms-card-styles';
 
 const tmsCardTemplateContent = `
       <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-6">
@@ -68,15 +70,17 @@ const tmsCardTemplateContent = `
       </div>
     </div>
     `;
-const TEMPLATE_ID = 'tms-card-template';
 
-// add style sheet to document head if iit's not already there
+// add style sheet to <head>
 function addCardStyleToHead () {
-  let styleSheet = document.getElementById(STYLESHEET_ID);
-  if (!styleSheet) {
-    styleSheet = document.createElement('style');
-    styleSheet.id = STYLESHEET_ID;
-    styleSheet.textContent = cssRules;
+  const customSheet = document.getElementById(STYLESHEET_ID);
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = cssRules;
+  if (customSheet) {
+    // add before user's custom sheet
+    customSheet.insertAdjacentElement('beforebegin', styleSheet);
+  } else {
+    // add at bottom of <head>
     document.head.appendChild(styleSheet);
   }
 }
