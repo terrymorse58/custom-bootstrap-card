@@ -1,6 +1,6 @@
 # custom-bootstrap-card
 
-A custom card component based on Bootstrap 4
+A responsive custom Bootstrap 4 card component with hover animation effects
 ---
 
 ![custom card screenshot](docs/bootstrap-custom-card-dynamic-600x450.gif)
