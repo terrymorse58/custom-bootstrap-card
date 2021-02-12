@@ -13,6 +13,7 @@ const cssRules = `
         transition: transform .3s ease, box-shadow .2s ease;
         margin-bottom: 30px;
         transform: scale(1.0);
+        height: calc(100% - 30px);
       }
       
       .tms-card:hover {

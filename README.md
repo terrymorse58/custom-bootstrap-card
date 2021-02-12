@@ -5,6 +5,15 @@ A custom card component based on Bootstrap 4
 
 ![custom card screenshot](docs/bootstrap-custom-card-dynamic-600x450.gif)
 
+## Features
+
+* responds to window width
+* responds to dark/light preference (optional)
+* animates upon hover (zoom in with box shadow)
+* animates upon touch on non-hover devices (iPhone, etc.)
+* displays alternate image upon hover/touch (optional)
+* displays Open link button upon hover/touch (optional)
+
 ## Usage
 
 In HTML head:
@@ -28,7 +37,7 @@ In HTML body:
     'https://cdn.jsdelivr.net/npm/custom-bootstrap-card/src/bootstrap-card.js';
 
   addCard({
-    rowId: "exampleCards",
+    containerId: "exampleCards",
     imageUrl: "https://picsum.photos/400/300",
     imageAlt: "sample picsum image",
     title: "Random Image Number",
@@ -47,3 +56,4 @@ Override default styling by placing:
 </style>
 ```
 in the document's `<head>` section.
+
