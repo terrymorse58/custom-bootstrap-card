@@ -3,7 +3,7 @@
 A responsive custom Bootstrap 4 card component with hover animation effects
 ---
 
-![custom card screenshot](docs/bootstrap-custom-card-dynamic-600x450.gif)
+![custom card screenshot](https://cdn.jsdelivr.net/npm/custom-bootstrap-card/docs/bootstrap-custom-card-dynamic-600x450.gif)
 
 ## Features
 
