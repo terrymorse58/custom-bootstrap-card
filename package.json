@@ -1,6 +1,6 @@
 {
   "name": "custom-bootstrap-card",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "a responsive custom Bootstrap 4 card component with hover animation effects",
   "main": "src/bootstrap-card.js",
   "scripts": {

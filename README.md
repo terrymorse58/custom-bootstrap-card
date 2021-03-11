@@ -7,7 +7,7 @@ A responsive custom Bootstrap 4 card component with hover animation effects
 
 ## Features
 
-* responds to window width
+* responds to window width and height
 * responds to dark/light preference (optional)
 * animates upon hover (zoom in with box shadow)
 * animates upon touch on non-hover devices (iPhone, etc.)
